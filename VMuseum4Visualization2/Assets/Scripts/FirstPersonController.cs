@@ -60,7 +60,7 @@ public class FirstPersonController : MonoBehaviour
         m_StickToGroundForce = 10;
         m_GravityMultiplier = 30;
 
-        sensXWalkthrough=5f;
+        sensXWalkthrough=1.55f;
         sensYWalkthrough=1.5f;
         sensWWalkthrough=30f; //6
         sensXBrowse=0.1f;
@@ -389,6 +389,23 @@ public class FirstPersonController : MonoBehaviour
         m_FPSController.transform.localRotation = Quaternion.Euler(0f, ry, 0f);
 		headcenter.transform.localRotation = Quaternion.Euler(rx, 0f, 0f);
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Coin")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+    }
+    
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.tag == "Coin")
+        {
+            GetComponent<AudioSource>().Pause();
+        }
+    }
+
     /*
     public static bool GetButton(string name)
     {
@@ -405,7 +422,7 @@ public class FirstPersonController : MonoBehaviour
 
         return ret;
     }
-      */  
+      */
 
 }
 
