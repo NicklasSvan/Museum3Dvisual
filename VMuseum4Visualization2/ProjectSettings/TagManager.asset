@@ -6,7 +6,7 @@ TagManager:
   tags:
   - 3dobject
   - 2dobject
-  - Coin
+  - Audio
   layers:
   - Default
   - TransparentFX

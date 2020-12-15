@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class FirstPersonController : MonoBehaviour
     int flagbrowsecolback=0;
 
     int premode;
+
+    public float FadeInTime;
+    public float FadeOutTime;
 
 
     // Use this for initialization
@@ -390,19 +394,52 @@ public class FirstPersonController : MonoBehaviour
 		headcenter.transform.localRotation = Quaternion.Euler(rx, 0f, 0f);
     }
 
+    public static IEnumerator FadeIn(AudioSource audioSource, float FadeInTime)
+    {
+        float startVolume = 0.2f;
+
+        while (audioSource.volume < 1.0f)
+        {
+            audioSource.volume += startVolume * Time.deltaTime / FadeInTime;
+
+            yield return null;
+        }
+
+        audioSource.volume = 1f;
+    } 
+
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeOutTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeOutTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    } 
+
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Coin")
+        if (collision.gameObject.tag == "Audio")
         {
-            GetComponent<AudioSource>().Play();
+            AudioSource audioSource = collision.GetComponent<AudioSource>();
+            audioSource.Play();
+            StartCoroutine(FadeIn(audioSource, FadeInTime));
         }
     }
     
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == "Coin")
+        if (collision.gameObject.tag == "Audio")
         {
-            GetComponent<AudioSource>().Pause();
+            AudioSource audioSource = collision.GetComponent<AudioSource>();
+            StartCoroutine(FadeOut(audioSource, FadeOutTime));
+            
         }
     }
 
