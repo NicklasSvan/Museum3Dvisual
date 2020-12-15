@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/angelosTestScene.unity
+- path: Assets/_Barking_Dog/3D Virtual Showroom Vol 4/Example_01.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
