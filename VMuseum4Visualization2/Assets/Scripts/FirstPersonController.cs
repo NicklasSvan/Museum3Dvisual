@@ -429,7 +429,7 @@ public class FirstPersonController : MonoBehaviour
         {
             AudioSource audioSource = collision.GetComponent<AudioSource>();
             audioSource.Play();
-            StartCoroutine(FadeIn(audioSource, FadeInTime));
+            //StartCoroutine(FadeIn(audioSource, FadeInTime));
         }
     }
     
