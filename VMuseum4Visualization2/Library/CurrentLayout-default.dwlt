@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 142
+  controlID: 42
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -349,8 +349,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e8660000
-    m_LastClickedID: 26344
+    m_SelectedIDs: 00670000
+    m_LastClickedID: 26368
     m_ExpandedIDs: 000000008a6600008c6600008e66000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.08552033, y: 0.5438496, z: -0.055834733, w: -0.8329761}
     speed: 2
-    m_Value: {x: -0.08775699, y: 0.5474069, z: -0.057860125, w: -0.8302389}
+    m_Value: {x: -0.08552032, y: 0.5438496, z: -0.05583473, w: -0.8329761}
   m_Size:
     m_Target: 0.5976106
     speed: 2
